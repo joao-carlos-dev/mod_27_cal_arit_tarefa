@@ -61,14 +61,14 @@ const calcularResultado = () => {
 const cadastraNumero01 = () => {
   const numeroNovo = {
     valor: estado.NumeroTemp1,
-  }
+}
   estado.tarefas.push(numeroNovo);
 }
 
 const cadastraNumero02 = () => {
   const numeroNovo = {
     valor: estado.NumeroTemp2,
-  }
+}
   estado.tarefas.push(numeroNovo);
 }
 
@@ -88,7 +88,7 @@ const cadastraNumero02 = () => {
       </div>
       <div class="col-md-2">
         <select class="ms-4" @change="calcularResultado">
-          <option value="operações">Operações</option>
+          <option value="operacao">Operações</option>
           <option value="somar">+</option>
           <option value="subtrair">-</option>
           <option value="multiplicacao">*</option>
@@ -103,7 +103,7 @@ const cadastraNumero02 = () => {
         <span class="ms-3">=</span>
       </div>
       <div class="col-md-2">
-        <input type="text" placeholder="Resultado">
+        <input v-model="estado.resultado" type="number" placeholder="Resultado">
       </div>
     </div>
   </div>
@@ -124,6 +124,7 @@ h1 {
 input {
   border-color: blue;
   border-radius: 3px;
+  text-align: center;
 }
 
 select {
