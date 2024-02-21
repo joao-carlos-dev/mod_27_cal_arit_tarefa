@@ -81,26 +81,31 @@ const cadastraNumero02 = () => {
       <h1>Calculadora Aritmética</h1>
     </header>
 
-    <div class="row">
+    <div>
+      <h2 class="sub">INSTRUÇÕES</h2>
+      <h4 class="text">Primeiro, insira os números nos campos correspondentes</h4>
+      <h4 class="text">Em seguida, escolha a operação desejada</h4>
+    </div>
+    <div class="row bg-success rounded-3 p-5">
       <div class="col-md-2">
         <input required @change="evento => estado.NumeroTemp1 = evento.target.value" @submit="cadastraNumero01" type="number"
           placeholder="Nº">
       </div>
-      <div class="col-md-2">
-        <select class="ms-4" @change="calcularResultado">
-          <option value="operacao">Operações</option>
-          <option value="somar">+</option>
-          <option value="subtrair">-</option>
-          <option value="multiplicacao">*</option>
-          <option value="divisao">/</option>
-        </select>
+        <div class="col-md-2">
+          <select v-model="estado.filtro" class="ms-4" @change="calcularResultado">
+            <option value="operacao">Operações</option>
+            <option value="somar">+</option>
+            <option value="diminuir">-</option>
+            <option value="multiplicacao">*</option>
+            <option value="divisao">÷</option>
+          </select>
       </div>
       <div class="col-md-2">
         <input required @change="evento => estado.NumeroTemp2 = evento.target.value" @submit="cadastraNumero02" type="number"
           placeholder="Nº">
       </div>
       <div class="col-md-1">
-        <span class="ms-3">=</span>
+        <span class="ms-4">=</span>
       </div>
       <div class="col-md-2">
         <input v-model="estado.resultado" type="number" placeholder="Resultado">
@@ -121,8 +126,18 @@ h1 {
   justify-content: center;
 }
 
+.sub {
+  text-align: center;
+  font-size: 20px;
+}
+
+.text {
+  text-align: center;
+  font-size: 16px;
+}
+
 input {
-  border-color: blue;
+  border-color: rgb(138, 235, 167);
   border-radius: 3px;
   text-align: center;
 }
@@ -130,7 +145,7 @@ input {
 select {
   border-radius: 3px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: rgba(94, 94, 243, 0.562);
+  background-color: rgba(77, 236, 15, 0.562);
   cursor: pointer;
 }
 
